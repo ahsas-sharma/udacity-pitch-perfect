@@ -21,6 +21,9 @@ class PlaySoundsViewController: UIViewController {
     @IBOutlet weak var reverbButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     
+    /// Used for setting the contentMode of button's imageView to scaleAspectFit
+    @IBOutlet var effectButtons: [UIButton]!
+    
     // MARK:- Properties -
     
     var recordedAudioURL:URL!
@@ -39,6 +42,9 @@ class PlaySoundsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAudio()
+        for button in effectButtons {
+            button.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
